@@ -10,14 +10,16 @@ const Options = () => {
     <div className="grow flex flex-col">
       <TypeSelect />
 
-      <div className="bg-background p-6 rounded-2xl rounded-tr-none grow overflow-y-auto">
-        <QRInfo />
+      <div className="bg-background p-6 pr-2 pb-4 rounded-2xl rounded-tr-none grow flex flex-col">
+        <div className="grow max-h-[calc(100dvh-234px)] pr-2 overflow-y-auto">
+          <QRInfo />
 
-        <Block title="Frames"></Block>
+          <Block title="Frames"></Block>
 
-        <QRStyle />
+          <QRStyle />
 
-        <Block title="Logo"></Block>
+          <Block title="Logo"></Block>
+        </div>
       </div>
     </div>
   );
