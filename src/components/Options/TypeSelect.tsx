@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useQRContext } from "@/context/QRContext";
 import useOutsideClick from "@/hook/useOutsideClick";
 import { cn } from "@/lib/utils";

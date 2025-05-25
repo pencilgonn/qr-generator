@@ -2,9 +2,11 @@ import { useState, useEffect, useRef, RefObject } from "react";
 
 function useOutsideClick(refContains?: RefObject<HTMLDivElement>[]) {
   const [click, setClick] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ref = useRef<any>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleClick = (e: any) => {
       if (refContains && refContains.length) {
         let isBreak = false;

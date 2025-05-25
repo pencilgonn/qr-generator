@@ -1,7 +1,6 @@
 import useOutsideClick from "@/hook/useOutsideClick";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
-import Image from "next/image";
 import { memo, RefObject, useEffect, useState } from "react";
 
 type Option = {
@@ -13,7 +12,6 @@ type Option = {
 type Props = {
   label: string;
   contentClass?: string;
-  placeholder?: string;
   value?: string;
   options?: Option[];
   onSelectChange?: (option: Option) => void;
@@ -21,7 +19,6 @@ type Props = {
 
 const Select: React.FC<Props> = ({
   contentClass,
-  placeholder,
   className,
   value,
   options,

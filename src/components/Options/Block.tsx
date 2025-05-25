@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Collapse from "../ui/collapse";
-import { ChevronDown, ChevronUp, Minus, Plus } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Props = {} & React.ComponentProps<"div">;

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { cn } from "@/lib/utils";
@@ -62,7 +63,7 @@ const QRLogo = () => {
         margin: Math.round(parseFloat(marginDebounce)),
       },
     });
-  }, [url, sizeDebounce, marginDebounce, hide]);
+  }, [url, sizeDebounce, marginDebounce, hide, onChangeOptions]);
 
   return (
     <Block title="Logo">

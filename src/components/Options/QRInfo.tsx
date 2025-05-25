@@ -27,7 +27,7 @@ const QRURL = () => {
 
   useEffect(() => {
     onChangeOptions({ data: urlDebounce });
-  }, [urlDebounce]);
+  }, [urlDebounce, onChangeOptions]);
 
   if (type != QR_TYPES.URL) return null;
 

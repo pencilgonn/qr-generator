@@ -41,7 +41,7 @@ const BackgroundOption = () => {
         },
       });
     }
-  }, [colorsDebounce, gradientType, rotationDebounce]);
+  }, [colorsDebounce, gradientType, rotationDebounce, onChangeOptions]);
 
   return (
     <div className="pl-4 border-l-4 border-foreground mt-10">

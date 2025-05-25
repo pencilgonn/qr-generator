@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { CORNERS_OPTIONS } from "@/utils/enum";
 import { useQRContext } from "@/context/QRContext";
 import { cn } from "@/lib/utils";
@@ -82,7 +83,7 @@ const CornersSquareOption = () => {
         },
       });
     }
-  }, [colorsDebounce, gradientType, rotationDebounce]);
+  }, [colorsDebounce, gradientType, rotationDebounce, onChangeOptions]);
 
   return (
     <div className="pl-4 border-l-4 border-foreground mt-10">
