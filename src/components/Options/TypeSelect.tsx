@@ -34,7 +34,7 @@ const TypeSelect = () => {
   if (!typeSelect) return null;
 
   return (
-    <div className="flex">
+    <div className="flex shrink-0">
       <div
         className="bg-background rounded-tl-2xl relative cursor-pointer flex shrink-0"
         ref={ref}
@@ -50,7 +50,7 @@ const TypeSelect = () => {
         </div>
 
         <div
-          className="absolute top-full shadow p-3 min-w-[300px] bg-background rounded-xl data-[state=show]:block data-[state=hide]:hidden"
+          className="absolute top-full shadow p-3 z-10 min-w-[300px] bg-background rounded-xl data-[state=show]:block data-[state=hide]:hidden"
           data-state={click ? "show" : "hide"}
         >
           {TYPES.map((t) => (

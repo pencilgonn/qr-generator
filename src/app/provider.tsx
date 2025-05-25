@@ -1,15 +1,27 @@
 "use client";
 
 import { QRContext } from "@/context/QRContext";
-import { QR_TYPES } from "@/utils/const";
+import { DOTS_OPTIONS, QR_TYPES } from "@/utils/enum";
 import { QrCode } from "lucide-react";
 import Link from "next/link";
+import { Options } from "qr-code-styling";
 import { ReactNode, useEffect, useState } from "react";
 
 const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [client, setClient] = useState(false);
 
   const [type, setType] = useState<QR_TYPES>(QR_TYPES.URL);
+  const [options, setOptions] = useState<Options>({
+    data: "",
+    dotsOptions: {
+      type: DOTS_OPTIONS.SQUARE,
+      // roundSize: false,
+    },
+  });
+
+  const onChangeOptions = (otps?: Options) => {
+    setOptions((prevOptions) => ({ ...prevOptions, ...otps }));
+  };
 
   useEffect(() => {
     setClient(true);
@@ -18,7 +30,9 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   if (!client) return null;
 
   return (
-    <QRContext.Provider value={{ type, setType }}>
+    <QRContext.Provider
+      value={{ type, setType, options, setOptions, onChangeOptions }}
+    >
       <div className="h-dvh flex flex-col overflow-hidden">
         <div className="shrink-0 sticky top-0">
           <header>
@@ -30,8 +44,10 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
             </div>
           </header>
         </div>
-        <div className="grow overflow-y-auto mt-6">
-          <div className="max-w-[1432px] mx-auto w-full">{children}</div>
+        <div className="grow flex mt-6">
+          <div className="max-w-[1432px] mx-auto w-full grow flex flex-col">
+            {children}
+          </div>
         </div>
         <div className="shrink-0">
           <footer>

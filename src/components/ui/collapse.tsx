@@ -14,7 +14,7 @@ const Collapse: React.FC<CollapseProps> = ({ children, open, ...rest }) => {
     <LazyMotion features={domAnimation} strict>
       <div aria-expanded={open} {...rest}>
         <m.div
-          style={{ overflow: "hidden" }}
+          style={open ? {} : { overflow: "hidden" }}
           initial={{ height: 0, opacity: 1 }}
           animate={animate}
           exit={{ height: 0, opacity: 0 }}

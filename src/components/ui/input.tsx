@@ -8,7 +8,7 @@ interface ButtonProps extends InputHTMLAttributes<HTMLInputElement> {
 const Input = forwardRef<HTMLInputElement, ButtonProps>(
   ({ label, placeholder, value, className, ...props }, ref) => {
     return (
-      <label className="relative flex">
+      <label className="relative flex grow">
         <input
           ref={ref}
           placeholder={placeholder}

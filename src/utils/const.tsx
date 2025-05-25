@@ -1,9 +1,5 @@
 import { FileText, Link } from "lucide-react";
-
-export enum QR_TYPES {
-  URL = "URL",
-  TEXT = "TEXT",
-}
+import { QR_TYPES } from "./enum";
 
 export const TYPES = [
   {
