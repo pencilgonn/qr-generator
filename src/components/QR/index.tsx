@@ -33,7 +33,7 @@ const QR = () => {
   }, [qrCode, options]);
 
   return (
-    <>
+    <div className="p-5 bg-background rounded-2xl">
       <div className="aspect-square flex items-center justify-center">
         <div ref={qrRef} />
       </div>
@@ -49,7 +49,7 @@ const QR = () => {
           Free download QR.
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

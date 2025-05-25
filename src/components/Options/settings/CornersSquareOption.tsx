@@ -1,45 +1,50 @@
-import { DOTS_OPTIONS } from "@/utils/enum";
+import { CORNERS_OPTIONS } from "@/utils/enum";
 import { useQRContext } from "@/context/QRContext";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Plus, X } from "lucide-react";
-import DotsSquarePattern from "@/components/icons/DotsSquarePattern";
-import DotsCirclePattern from "@/components/icons/DotsCirclePattern";
-import DotsRoundedPattern from "@/components/icons/DotsRoundedPattern";
-import DotsExtraRoundedPattern from "@/components/icons/DotsExtraRoundedPattern";
-import DotsClassyPattern from "@/components/icons/DotsClassyPattern";
-import DotsClassyRoundedPattern from "@/components/icons/DotsClassyRoundedPattern";
 import Collapse from "@/components/ui/collapse";
 import Select from "@/components/ui/select";
 import Input from "@/components/ui/input";
 import { useDebounce } from "@/hook/useDebounce";
 import { GradientType } from "qr-code-styling";
+import CornersDotPattern from "@/components/icons/CornersDotPattern";
+import CornersSquarePattern from "@/components/icons/CornersSquarePattern";
+import CornersRoundedPattern from "@/components/icons/CornersRoundedPattern";
+import CornersExtraRoundedPattern from "@/components/icons/CornersExtraRoundedPattern";
 
-const dotOptions = [
+const connersOptions = [
   {
-    pattern: <DotsSquarePattern />,
-    type: DOTS_OPTIONS.SQUARE,
+    pattern: <CornersSquarePattern />,
+    type: CORNERS_OPTIONS.SQUARE,
   },
   {
-    pattern: <DotsCirclePattern />,
-    type: DOTS_OPTIONS.DOTS,
+    pattern: <CornersDotPattern />,
+    type: CORNERS_OPTIONS.DOT,
   },
   {
-    pattern: <DotsRoundedPattern />,
-    type: DOTS_OPTIONS.ROUNDED,
+    pattern: <CornersRoundedPattern />,
+    type: CORNERS_OPTIONS.ROUNDED,
   },
   {
-    pattern: <DotsExtraRoundedPattern />,
-    type: DOTS_OPTIONS.EXTRA_ROUNDED,
+    pattern: <CornersExtraRoundedPattern />,
+    type: CORNERS_OPTIONS.EXTRA_ROUNDED,
   },
-  {
-    pattern: <DotsClassyPattern />,
-    type: DOTS_OPTIONS.CLASSY,
-  },
-  {
-    pattern: <DotsClassyRoundedPattern />,
-    type: DOTS_OPTIONS.CLASSY_ROUNDED,
-  },
+
+  // Chưa có svg tương ứng
+
+  // {
+  //   pattern: <></>,
+  //   type: CORNERS_OPTIONS.DOTS,
+  // },
+  // {
+  //   pattern: <></>,
+  //   type: CORNERS_OPTIONS.CLASSY,
+  // },
+  // {
+  //   pattern: <></>,
+  //   type: CORNERS_OPTIONS.CLASSY_ROUNDED,
+  // },
 ];
 
 const CornersSquareOption = () => {
@@ -57,18 +62,16 @@ const CornersSquareOption = () => {
 
     if (colorsDebounce.length == 1) {
       onChangeOptions({
-        dotsOptions: {
-          type: options.dotsOptions?.type,
+        cornersSquareOptions: {
+          type: options.cornersSquareOptions?.type,
           color: colorsDebounce[0],
-          roundSize: true,
           gradient: undefined,
         },
       });
     } else {
       onChangeOptions({
-        dotsOptions: {
-          type: options.dotsOptions?.type,
-          roundSize: true,
+        cornersSquareOptions: {
+          type: options.cornersSquareOptions?.type,
           gradient: {
             type: gradientType,
             rotation: rotationDebounce,
@@ -85,22 +88,25 @@ const CornersSquareOption = () => {
     <div className="pl-4 border-l-4 border-foreground mt-10">
       <h3 className="text-xl/[1] font-bold">Corners Square style</h3>
       <div className="flex flex-wrap gap-4 mt-4">
-        {dotOptions.map((dots) => (
+        {connersOptions.map((dots) => (
           <div
             key={dots.type}
             className={cn(
-              "p-2 border-3 border-[#ddd] rounded-lg cursor-pointer transition-[background-color,border]",
+              "p-4 border-3 border-[#ddd] rounded-lg cursor-pointer transition-[background-color,border]",
               "hover:border-primary hover:bg-foreground/50",
-              options.dotsOptions?.type == dots.type &&
+              options.cornersSquareOptions?.type == dots.type &&
                 "border-primary bg-foreground/50"
             )}
             onClick={() =>
               onChangeOptions({
-                dotsOptions: { ...options.dotsOptions, type: dots.type },
+                cornersSquareOptions: {
+                  ...options.cornersSquareOptions,
+                  type: dots.type,
+                },
               })
             }
           >
-            <span className="[&>svg]:size-15 rounded-lg overflow-hidden">
+            <span className="[&>svg]:size-11 rounded-lg overflow-hidden">
               {dots.pattern}
             </span>
           </div>

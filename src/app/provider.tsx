@@ -1,7 +1,12 @@
 "use client";
 
 import { QRContext } from "@/context/QRContext";
-import { DOTS_OPTIONS, QR_TYPES } from "@/utils/enum";
+import {
+  CORNERS_DOT_OPTIONS,
+  CORNERS_OPTIONS,
+  DOTS_OPTIONS,
+  QR_TYPES,
+} from "@/utils/enum";
 import { QrCode } from "lucide-react";
 import Link from "next/link";
 import { Options } from "qr-code-styling";
@@ -16,6 +21,17 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     dotsOptions: {
       type: DOTS_OPTIONS.SQUARE,
       // roundSize: false,
+    },
+    cornersSquareOptions: {
+      type: CORNERS_OPTIONS.SQUARE,
+    },
+    cornersDotOptions: {
+      type: CORNERS_DOT_OPTIONS.SQUARE,
+    },
+    qrOptions: {
+      typeNumber: 0,
+      mode: "Byte",
+      errorCorrectionLevel: "Q",
     },
   });
 
@@ -44,8 +60,8 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
             </div>
           </header>
         </div>
-        <div className="grow flex mt-6">
-          <div className="max-w-[1432px] mx-auto w-full grow flex flex-col">
+        <div className="grow flex mt-6 overflow-hidden">
+          <div className="max-w-[1432px] mx-auto w-full grow flex overflow-hidden">
             {children}
           </div>
         </div>
