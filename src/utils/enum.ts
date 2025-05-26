@@ -1,6 +1,6 @@
 export enum QR_TYPES {
   URL = "URL",
-  TEXT = "TEXT",
+  WIFI = "WIFI",
 }
 
 export enum DOTS_OPTIONS {

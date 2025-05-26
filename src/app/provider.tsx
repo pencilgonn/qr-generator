@@ -18,6 +18,8 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [type, setType] = useState<QR_TYPES>(QR_TYPES.URL);
   const [options, setOptions] = useState<Options>({
     data: "",
+    width: 280,
+    height: 280,
     dotsOptions: {
       type: DOTS_OPTIONS.SQUARE,
       // roundSize: false,
@@ -60,8 +62,8 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
             </div>
           </header>
         </div>
-        <div className="grow flex mt-6 overflow-hidden">
-          <div className="max-w-[1432px] mx-auto w-full grow flex overflow-hidden">
+        <div className="grow flex mt-2 overflow-hidden">
+          <div className="max-w-[1432px] px-4 mx-auto w-full grow flex overflow-hidden">
             {children}
           </div>
         </div>

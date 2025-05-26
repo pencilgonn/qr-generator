@@ -1,4 +1,4 @@
-import { FileText, Link } from "lucide-react";
+import { Link, Wifi } from "lucide-react";
 import { QR_TYPES } from "./enum";
 
 export const TYPES = [
@@ -8,8 +8,8 @@ export const TYPES = [
     icon: <Link size={24} />,
   },
   {
-    type: QR_TYPES.TEXT,
-    label: "Text",
-    icon: <FileText size={24} />,
+    type: QR_TYPES.WIFI,
+    label: "Wifi",
+    icon: <Wifi size={24} />,
   },
 ];

@@ -11,7 +11,6 @@ import Collapse from "@/components/ui/collapse";
 import Range from "@/components/ui/range";
 import Switch from "@/components/ui/switch";
 import Input from "@/components/ui/input";
-import { useDebounce } from "@/hook/useDebounce";
 
 const QRLogo = () => {
   const { options, onChangeOptions } = useQRContext();
@@ -22,9 +21,6 @@ const QRLogo = () => {
   const [margin, setMargin] = useState("0");
 
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const sizeDebounce = useDebounce(size);
-  const marginDebounce = useDebounce(margin);
 
   const onFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (!inputRef.current) return;
@@ -60,10 +56,10 @@ const QRLogo = () => {
         hideBackgroundDots: hide,
         saveAsBlob: true,
         imageSize: size / 100,
-        margin: Math.round(parseFloat(marginDebounce)),
+        margin: Math.round(parseFloat(margin)),
       },
     });
-  }, [url, sizeDebounce, marginDebounce, hide, onChangeOptions]);
+  }, [url, size, margin, hide]);
 
   return (
     <Block title="Logo">

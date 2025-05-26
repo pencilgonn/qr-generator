@@ -7,7 +7,6 @@ import { Plus, X } from "lucide-react";
 import Collapse from "@/components/ui/collapse";
 import Select from "@/components/ui/select";
 import Input from "@/components/ui/input";
-import { useDebounce } from "@/hook/useDebounce";
 import { GradientType } from "qr-code-styling";
 import CornersDotSquarePattern from "@/components/icons/CornersDotSquarePattern";
 import CornersDotSCirclePattern from "@/components/icons/CornersDotSCirclePattern";
@@ -55,17 +54,14 @@ const CornersDotOption = () => {
   const [gradientType, setGradientType] = useState<GradientType>("linear");
   const [rotation, setRotation] = useState("0");
 
-  const rotationDebounce = useDebounce(rotation);
-  const colorsDebounce: string[] = useDebounce(colors);
-
   useEffect(() => {
-    if (!colorsDebounce) return;
+    if (!colors) return;
 
-    if (colorsDebounce.length == 1) {
+    if (colors.length == 1) {
       onChangeOptions({
         cornersDotOptions: {
           type: options.cornersDotOptions?.type,
-          color: colorsDebounce[0],
+          color: colors[0],
           gradient: undefined,
         },
       });
@@ -75,15 +71,15 @@ const CornersDotOption = () => {
           type: options.cornersDotOptions?.type,
           gradient: {
             type: gradientType,
-            rotation: rotationDebounce,
-            colorStops: colorsDebounce.map((color, index) => {
+            rotation: parseFloat(rotation),
+            colorStops: colors.map((color, index) => {
               return { color: color, offset: index };
             }),
           },
         },
       });
     }
-  }, [colorsDebounce, gradientType, rotationDebounce, onChangeOptions]);
+  }, [colors, gradientType, rotation]);
 
   return (
     <div className="pl-4 border-l-4 border-foreground mt-10">

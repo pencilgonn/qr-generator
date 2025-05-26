@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import QRCodeStyling from "qr-code-styling";
 import { useQRContext } from "@/context/QRContext";
+import Lottie from "lottie-react";
+import { qrJson } from "@/assets";
 
 const QR = () => {
   const { options } = useQRContext();
@@ -35,14 +37,18 @@ const QR = () => {
 
   return (
     <div className="p-5 bg-background rounded-2xl">
-      <div className="aspect-square flex items-center justify-center">
+      <div className="aspect-square flex items-center justify-center relative">
         <div ref={qrRef} />
+        {!options.data && (
+          <Lottie className="w-full h-auto absolute" animationData={qrJson} />
+        )}
       </div>
       <div className="mt-6">
         <Button
           onClick={onDownloadClick}
           variant="primary"
           className="text-xl py-2.5 rounded-xl"
+          disabled={!qrCode || !options.data}
         >
           Download QR as PNG
         </Button>

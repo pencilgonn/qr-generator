@@ -14,8 +14,9 @@ const Input = forwardRef<HTMLInputElement, ButtonProps>(
           placeholder={placeholder}
           className={cn(
             "relative px-4 pt-3.5 pb-2 rounded-lg border-3 border-primary/50 outline-none w-full text-lg",
-            "focus-within:[&~span]:text-sm focus-within:[&~span]:top-0 focus-within:[&~span]:font-medium focus-within:[&~span]:pl-2.5",
-            value && "[&~span]:text-sm [&~span]:top-0 [&~span]:font-medium [&~span]:pl-2.5",
+            "focus-within:[&~span]:text-sm focus-within:[&~span]:top-0 focus-within:[&~span]:font-medium focus-within:[&~span]:pl-2.5 not-focus-within:placeholder:text-white",
+            value &&
+              "[&~span]:text-sm [&~span]:top-0 [&~span]:font-medium [&~span]:pl-2.5",
             className
           )}
           value={value}
