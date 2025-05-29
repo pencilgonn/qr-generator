@@ -7,7 +7,7 @@ import QRErrorCorrectLevel from "./settings/QRErrorCorrectLevel";
 
 const QRStyle = () => {
   return (
-    <Block title="Shape & Color">
+    <Block title="Shape & Color" id="shape_color" className="scroll-smooth">
       <QRErrorCorrectLevel />
       <DotsOptions />
       <CornersSquareOption />

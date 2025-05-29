@@ -51,7 +51,7 @@ const Select: React.FC<Props> = ({
   return (
     <div
       className={cn(
-        "relative rounded-lg cursor-pointer border-3 border-primary/50",
+        "relative rounded-lg cursor-pointer border-3 border-primary/50 min-w-[200px]",
         className
       )}
       ref={ref as RefObject<HTMLDivElement>}

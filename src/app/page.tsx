@@ -3,11 +3,11 @@ import QR from "@/components/QR";
 
 const Page = () => {
   return (
-    <main className="grow flex space-x-4 overflow-hidden">
+    <main className="grow flex overflow-hidden max-lg:flex-col-reverse gap-4">
       <div className="grow overflow-hidden flex">
         <Options />
       </div>
-      <div className="max-w-[400px] w-full shrink-0">
+      <div className="max-w-[400px] w-full shrink-0 mx-auto max-lg:flex max-lg:justify-center">
         <QR />
       </div>
     </main>

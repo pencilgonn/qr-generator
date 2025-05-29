@@ -3,10 +3,10 @@ import QRWifi from "./qr_types/QRWifi";
 
 const QRInfo = () => {
   return (
-    <>
+    <div id="info" className="scroll-smooth">
       <QRURL />
       <QRWifi />
-    </>
+    </div>
   );
 };
 

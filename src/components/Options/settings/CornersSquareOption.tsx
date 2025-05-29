@@ -158,9 +158,9 @@ const CornersSquareOption = () => {
         </div>
       </div>
       <Collapse open={colors.length > 1}>
-        <div className="flex gap-5 pt-8">
+        <div className="flex flex-wrap gap-5 pt-8">
           <Select
-            className="w-1/2"
+            className="sm:w-1/2 w-full"
             label="Gradient Type"
             value={gradientType}
             onSelectChange={(option) =>

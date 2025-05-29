@@ -36,12 +36,12 @@ const QRErrorCorrectLevel = () => {
   return (
     <div className="pl-4 border-l-4 border-foreground">
       <h3 className="text-xl/[1] font-bold">Error Correction Level</h3>
-      <div className="flex gap-6 mt-4">
+      <div className="flex gap-6 mt-4 overflow-x-auto">
         {errorLevels.map((level, index) => (
           <div
             key={index}
             className={cn(
-              "w-full p-4 border border-primary/20 rounded-xl flex flex-col cursor-pointer transition-[background-color,border]",
+              "w-full p-4 border min-w-[180px] border-primary/20 rounded-xl flex flex-col cursor-pointer transition-[background-color,border]",
               "hover:border-primary hover:bg-foreground/20",
               options.qrOptions?.errorCorrectionLevel == level.level &&
                 "border-primary bg-foreground/20"

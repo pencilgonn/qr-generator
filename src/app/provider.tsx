@@ -51,8 +51,8 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     <QRContext.Provider
       value={{ type, setType, options, setOptions, onChangeOptions }}
     >
-      <div className="h-dvh flex flex-col overflow-hidden">
-        <div className="shrink-0 sticky top-0">
+      <div className="h-dvh flex flex-col overflow- max-lg:pt-3">
+        <div className="shrink-0 sticky top-0 max-lg:hidden">
           <header>
             <div className="flex max-w-[1432px] w-full p-4 py-5 mx-auto">
               <h1 className="flex items-center space-x-3 text-4xl font-bold text-primary">
@@ -70,7 +70,7 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
         <div className="shrink-0">
           <footer>
             <div className="flex justify-center">
-              <p className="py-1">
+              <p className="py-1 max-lg:text-xs">
                 © 2025
                 <Link
                   href="https://portfolio-pencil.web.app/"

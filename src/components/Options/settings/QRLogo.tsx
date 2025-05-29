@@ -62,7 +62,7 @@ const QRLogo = () => {
   }, [url, size, margin, hide]);
 
   return (
-    <Block title="Logo">
+    <Block title="Logo" id="logo" className="scroll-smooth">
       <div className="pl-4 border-l-4 border-foreground">
         <div className="flex items-center gap-4">
           {url && (
@@ -91,18 +91,18 @@ const QRLogo = () => {
           </div>
         </div>
         <Collapse open={!!url}>
-          <div className="flex gap-10 pt-8">
-            <div className="w-1/3">
+          <div className="flex max-lg:flex-wrap gap-10 pt-8">
+            <div className="md:w-1/3 max-md:w-full">
               <p className="text-lg/[1] font-semibold pb-6">Logo size</p>
               <Range max={100} value={size} setValue={setSize} />
             </div>
-            <div className="1/3">
+            <div className="md:w-1/3">
               <p className="text-lg/[1] font-semibold mb-3.5">
                 Hide background Dots
               </p>
               <Switch value={hide} onChange={(value) => setHide(value)} />
             </div>
-            <div className="1/3">
+            <div className="md:w-1/3 max-md:w-full max-md:[&>label]:w-full">
               <Input
                 label="Margin"
                 type="number"
